@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Clubs.h"
+#import "Manager.h"
+#import "Manager+Communication.h"
 
 @interface ClubDetailsViewController : UIViewController
 @property Clubs *clubDetail;

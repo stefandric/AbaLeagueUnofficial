@@ -81,7 +81,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    self.club = self.allClubs[indexPath.row];
+    [Manager sharedInstance].clubSingletonAs = self.allClubs[indexPath.row];
     
     
     [self performSegueWithIdentifier:@"clubDetails" sender:self];
