@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Clubs.h"
 #import "Players.h"
+#import "Manager.h"
+#import "Manager+Communication.h"
 
 @interface PlayersTableViewController : UITableViewController
 @property Clubs *clubDetails;
+@property Players *players;
 @end

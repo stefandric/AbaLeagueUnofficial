@@ -21,7 +21,7 @@
 }
 
 - (IBAction)favoriteAdd:(id)sender {
-    MainViewController *mainVC = [[MainViewController alloc]init];
+    
     
 }
 @end

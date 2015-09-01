@@ -20,6 +20,8 @@
     [super viewDidLoad];
     self.clubDetail = [Manager sharedInstance].clubSingletonAs;
     self.clubDetailNameLabel.text = self.clubDetail.name;
+    NSURL *hnkURL = [NSURL URLWithString:self.clubDetail.imageUrl];
+    [self.clubDetailImage hnk_setImageFromURL:hnkURL];
     // Do any additional setup after loading the view.
 }
 
@@ -51,7 +53,7 @@
 }
 */
 - (IBAction)backPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 @end
