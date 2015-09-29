@@ -35,15 +35,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.clubDetails.players.count;
+    return self.clubDetails.playersArrayObject.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlayersTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playersCell" forIndexPath:indexPath];
-    self.players = self.clubDetails.players[indexPath.row];
+    self.players = self.clubDetails.playersArrayObject[indexPath.row];
     cell.playerNameAndLastNameLabel.text = self.players.nameAndLastName;
-    // Configure the cell...
+    
     
     return cell;
 }

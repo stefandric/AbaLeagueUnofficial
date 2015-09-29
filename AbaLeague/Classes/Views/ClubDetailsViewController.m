@@ -18,11 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.clubDetail = [Manager sharedInstance].clubSingletonAs;
-    self.clubDetailNameLabel.text = self.clubDetail.name;
-    NSURL *hnkURL = [NSURL URLWithString:self.clubDetail.imageUrl];
-    [self.clubDetailImage hnk_setImageFromURL:hnkURL];
-    // Do any additional setup after loading the view.
+    [self showAllDetails];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,27 +27,25 @@
 }
 
 #pragma mark - Details methods
-//-(void)showAllDetails {
-//    NSURL *urlHnk = [NSURL URLWithString:self.clubDetail.imageUrl];
-//    self.clubDetailNameLabel.text = self.clubDetail.name;
-//    [self.clubDetailImage hnk_setImageFromURL:urlHnk];
-//}
-//- (IBAction)toPlayersPressed:(id)sender {
-//    
-//    [self performSegueWithIdentifier:@"toPlayers" sender:self];
-//}
+-(void)showAllDetails {
+    self.clubDetail = [Manager sharedInstance].clubSingletonAs;
+    self.clubDetailNameLabel.text = self.clubDetail.name;
+    NSURL *hnkURL = [NSURL URLWithString:self.clubDetail.imageUrl];
+    [self.clubDetailImage hnk_setImageFromURL:hnkURL];
+}
+
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    PlayersTableViewController *players = [segue destinationViewController];
-    players.clubDetails = self.clubDetail;
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ PlayersTableViewController *players = [segue destinationViewController];
+ players.clubDetails = self.clubDetail;
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 - (IBAction)backPressed:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
 }

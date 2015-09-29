@@ -28,7 +28,6 @@
         for (NSDictionary *clubDict in tempClubs) {
             Clubs *tClub = [[Clubs alloc]initWithDictionary:clubDict];
             [allTempClubs addObject:tClub];
-            
         }
         
         successfulDownloadClubs(allTempClubs);

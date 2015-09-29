@@ -17,7 +17,6 @@
         self.nameAndLastName = [dict objectForKey:@"Player"];
         self.position = [dict objectForKey:@"Position"];
         self.imgUrl = [dict objectForKey:@"Img"];
-        
     }
     return self;
 }
