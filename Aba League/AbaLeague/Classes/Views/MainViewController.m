@@ -21,12 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [SVProgressHUD show];
+    [Manager sharedInstance].favoriteClubs = [NSMutableArray new];
     [[Manager sharedInstance]downloadClubs:^(NSArray *clubs) {
         self.allClubs = [[NSArray alloc]initWithArray:clubs];
         [self.clubsTableView reloadData];
         [SVProgressHUD dismiss];
     } errorClubs:^(NSError *errorClub) {
-        NSLog(@"Error %@", errorClub);
+        [SVProgressHUD dismiss];
     }];
     
     self.mainHeadlineLabel.text = @"ABA League Season 2015/2016";
@@ -53,7 +54,7 @@
         cell.backgroundColor = [UIColor whiteColor];
     }
     else {
-       cell.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:0.2];
+        cell.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:0.2];
     }
     Clubs *club = [[Clubs alloc]init];
     club = self.allClubs[indexPath.row];
@@ -88,9 +89,18 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (IBAction)favoriteButtonPressed:(id)sender {
-    
+- (IBAction)favoriteButtonPressed:(UIButton *)sender {
+    if ([[Manager sharedInstance].favoriteClubs containsObject:self.allClubs[sender.tag]]) {
+         [[Manager sharedInstance].favoriteClubs removeObject:self.allClubs[sender.tag]];
+        [self.clubsTableView reloadData];
     }
+    else {
+        [[Manager sharedInstance].favoriteClubs addObject:self.allClubs[sender.tag]];
+        [self.clubsTableView reloadData];
+    }
+    
+   
+}
 
 #pragma mark - Navigation
 

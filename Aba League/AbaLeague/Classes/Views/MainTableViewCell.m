@@ -20,8 +20,4 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)favoriteAdd:(id)sender {
-    
-    
-}
 @end
